@@ -7,5 +7,5 @@ export default defineConfig({
     { enforce: "pre", ...mdx() },
     react({ include: /\.(jsx|js|mdx|md|tsx|ts)$/ }),
   ],
-  base: "/2606848/",
+  base: "./",
 });
