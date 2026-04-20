@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Box, Typography } from "@mui/material";
 
 import CustomModal from "./Components/CustomModal";
+import Footer from "./Components/Footer";
 import OpenModalView from "./Components/OpenModalView";
 
 import SectionOne from "./Sections/sectionOne.mdx";
@@ -8,97 +10,105 @@ import SectionTwo from "./Sections/sectionTwo.mdx";
 import SectionThree from "./Sections/sectionThree.mdx";
 
 import Image1 from "./assets/Mausoleum.jpg";
-import { Typography } from "@mui/material";
 
 export default function App() {
-  // -1 = closed, else index = which open
-  const [open, setOpen] = useState(-1);
-
-  function handleClose() {
-    setOpen(-1);
-  }
+  const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: 0,
-        margin: 0,
-      }}
-    >
-      <div
-        style={{
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Box
+        component="main"
+        sx={{
+          width: "80vw",
+          minHeight: "100vh",
+          px: { xs: 2, md: 3 },
+          py: 2,
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          width: "80vw",
-          height: "100vh",
-          minWidth: "800px",
           borderLeft: "2px solid #626c66",
           borderRight: "2px solid #626c66",
-          padding: 0,
-          margin: 0,
-          backgroundColor: "#babbba",
+          bgcolor: "#babbba",
+          boxSizing: "border-box",
         }}
       >
-        <Typography variant="h1" component="h1">
-          My awesome webstie
+        <Typography
+          variant="h1"
+          component="h1"
+          sx={{
+            fontFamily: "Almendra SC",
+            textAlign: "center",
+            fontSize: { xs: "2.5rem", sm: "3.75rem" },
+          }}
+        >
+          My awesome website
         </Typography>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-            width: "100%",
+        <Typography
+          variant="p"
+          component="p"
+          sx={{
+            textAlign: "center",
+            fontSize: { xs: "0.75rem", sm: "1rem" },
+          }}
+        >
+          This is some paragraph
+        </Typography>
+
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(auto-fit, minmax(240px, 1fr))",
+            },
+            gap: 3,
+            mt: 3,
           }}
         >
           <OpenModalView
-            index={1}
-            setOpen={setOpen}
+            title="Mausoleum"
+            excerpt="hello world"
             image={Image1}
-            title={"Mausoleum"}
-            excerpt={"hello world"}
+            onOpen={() => setOpenIndex(0)}
           />
-
           <OpenModalView
-            index={1}
-            setOpen={setOpen}
+            title="Mausoleum"
+            excerpt="hello world"
             image={Image1}
-            title={"Mausoleum"}
-            excerpt={"hello world"}
+            onOpen={() => setOpenIndex(1)}
           />
-
           <OpenModalView
-            index={1}
-            setOpen={setOpen}
+            title="Mausoleum"
+            excerpt="hello world"
             image={Image1}
-            title={"Mausoleum"}
-            excerpt={"hello world"}
+            onOpen={() => setOpenIndex(2)}
           />
-        </div>
-      </div>
+        </Box>
+
+        <Footer />
+      </Box>
 
       <CustomModal
-        title={"Mausoleum"}
-        open={open === 1}
-        handleClose={handleClose}
-        children={<SectionOne />}
-      />
+        open={openIndex === 0}
+        handleClose={() => setOpenIndex(null)}
+        title="Mausoleum"
+      >
+        <SectionOne />
+      </CustomModal>
       <CustomModal
-        title={"Title 2"}
-        open={open === 2}
-        handleClose={handleClose}
-        children={<SectionTwo />}
-      />
+        open={openIndex === 1}
+        handleClose={() => setOpenIndex(null)}
+        title="Mausoleum"
+      >
+        <SectionTwo />
+      </CustomModal>
       <CustomModal
-        title={"Title 3"}
-        open={open === 3}
-        handleClose={handleClose}
-        children={<SectionThree />}
-      />
-    </div>
+        open={openIndex === 2}
+        handleClose={() => setOpenIndex(null)}
+        title="Mausoleum"
+      >
+        <SectionThree />
+      </CustomModal>
+    </Box>
   );
 }

@@ -1,34 +1,31 @@
-import { Typography } from "@mui/material";
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import { FaCircle } from "react-icons/fa6";
 
-function OpenModalView({ index, setOpen, title, excerpt, image }) {
-  function openModal() {
-    setOpen(index);
-  }
-
+function OpenModalView({ title, excerpt, image, onOpen }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
+    <Card
+      elevation={0}
+      sx={{
+        height: "100%",
+        borderRadius: 3,
+        border: "1px solid rgba(60, 67, 63, 0.18)",
+        bgcolor: "rgba(255, 255, 255, 0.88)",
+        boxShadow: "0 10px 24px rgba(39, 44, 42, 0.1)",
       }}
-      onClick={openModal}
     >
-      <img src={image} style={{ width: 300, height: 300 }} />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          gap: 8,
-          alignItems: "center",
-        }}
-      >
-        <Typography variant="h6" component="h2">
-          {title}
-        </Typography>
-        <Typography>{excerpt}</Typography>
-      </div>
-    </div>
+      <CardActionArea onClick={onOpen} sx={{ height: "100%", alignItems: "stretch" }}>
+        <CardMedia component="img" image={image} alt={title} sx={{ height: 300 }} />
+        <CardContent sx={{ display: "flex", flexDirection: "row", gap: 1.3, alignItems: "center" }}>
+          <Typography variant="h5" component="h2" sx={{ fontWeight: 700, lineHeight: 1.1 }}>
+            {title}
+          </Typography>
+          <FaCircle size={5}/>
+          <Typography sx={{ color: "#4b5563", fontSize: "0.98rem", lineHeight: 1.5 }}>
+            {excerpt}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   );
 }
 

@@ -1,42 +1,50 @@
-import { Box, IconButton, Typography, Modal } from "@mui/material";
+import { Dialog, DialogContent, DialogTitle, IconButton, Typography } from "@mui/material";
 import { FaX } from "react-icons/fa6";
 
 function CustomModal({ open, handleClose, children, title }) {
   return (
-    <Modal open={open} onClose={handleClose}>
-      <Box
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          backgroundColor: "white",
-          width: 400,
-          border: "2px solid #000",
-          boxShadow: 24,
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      fullWidth
+      maxWidth="md"
+      PaperProps={{
+        sx: {
+          borderRadius: 3,
+          bgcolor: "#f5f1e8",
+          backgroundImage: "none",
+          overflow: "hidden",
+          width: "100%",
+        },
+      }}
+    >
+      <DialogTitle
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          borderBottom: "1px solid rgba(39, 44, 42, 0.16)",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "16px",
-              borderBottom: "1px solid black",
-            }}
-          >
-            <Typography variant="h6" component="h2">
-              {title}
-            </Typography>
-            <IconButton onClick={handleClose} size="small">
-              <FaX />
-            </IconButton>
-          </div>
-          <div style={{ padding: "16px" }}>{children}</div>
-        </div>
-      </Box>
-    </Modal>
+        <Typography
+          component="h2"
+          sx={{
+            fontFamily: "Almendra SC",
+            fontSize: { xs: "1.75rem", sm: "2.1rem" },
+            lineHeight: 1,
+          }}
+        >
+          {title}
+        </Typography>
+        <IconButton onClick={handleClose} sx={{ color: "#2b312d" }}>
+          <FaX size={14} />
+        </IconButton>
+      </DialogTitle>
+
+      <DialogContent sx={{ px: 3, py: 3, overflowX: "hidden" }}>
+        {children}
+      </DialogContent>
+    </Dialog>
   );
 }
 
