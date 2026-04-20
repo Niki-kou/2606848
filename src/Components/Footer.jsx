@@ -32,9 +32,9 @@ export default function Footer() {
         <Box component="ol" sx={{ m: 0, pl: 3 }}>
           <Box component="li">
             <Typography component="span" sx={{ fontStyle: "italic" }}>
-              Google search.
-            </Typography>{" "}
-            blah blah blah{" "}
+              Google search.&nbsp;
+            </Typography>
+            blah blah blah&nbsp;
             <Link
               href="https://website.com"
               target="_blank"

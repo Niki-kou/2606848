@@ -10,7 +10,7 @@ function CustomModal({ open, handleClose, children, title }) {
       maxWidth="md"
       PaperProps={{
         sx: {
-          borderRadius: 3,
+          borderRadius: 1,
           bgcolor: "#f5f1e8",
           backgroundImage: "none",
           overflow: "hidden",
