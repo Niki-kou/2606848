@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Divider } from "@mui/material";
 
 import CustomModal from "./Components/CustomModal";
 import Footer from "./Components/Footer";
@@ -19,7 +19,7 @@ export default function App() {
       <Box
         component="main"
         sx={{
-          width: "80vw",
+          width: { xs: "100%", md: "80vw" },
           minHeight: "100vh",
           px: { xs: 2, md: 3 },
           py: 2,
@@ -54,59 +54,48 @@ export default function App() {
           This is some paragraph
         </Typography>
 
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "1fr",
-              sm: "repeat(auto-fit, minmax(240px, 1fr))",
-            },
-            gap: 3,
-            mt: 3,
-          }}
-        >
-          <OpenModalView
-            title="Mausoleum"
-            excerpt="hello world"
-            image={Image1}
-            onOpen={() => setOpenIndex(0)}
-          />
-          <OpenModalView
-            title="Mausoleum"
-            excerpt="hello world"
-            image={Image1}
-            onOpen={() => setOpenIndex(1)}
-          />
-          <OpenModalView
-            title="Mausoleum"
-            excerpt="hello world"
-            image={Image1}
-            onOpen={() => setOpenIndex(2)}
-          />
-        </Box>
-
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 3, height: "100%" }}>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(auto-fit, minmax(240px, 1fr))",
+              },
+              gap: 3,
+              mt: 3,
+            }}
+          >
+            <OpenModalView
+              title="Mausoleum"
+              excerpt="hello world"
+              image={Image1}
+              onOpen={() => setOpenIndex(0)}
+            />
+            <OpenModalView
+              title="Mausoleum"
+              excerpt="hello world"
+              image={Image1}
+              onOpen={() => setOpenIndex(1)}
+            />
+            <OpenModalView
+              title="Mausoleum"
+              excerpt="hello world"
+              image={Image1}
+              onOpen={() => setOpenIndex(2)}
+            />
+          </Box>
         <Footer />
+        </Box>
       </Box>
 
-      <CustomModal
-        open={openIndex === 0}
-        handleClose={() => setOpenIndex(null)}
-        title="Mausoleum"
-      >
+      <CustomModal open={openIndex === 0} handleClose={() => setOpenIndex(null)} title="Mausoleum">
         <SectionOne />
       </CustomModal>
-      <CustomModal
-        open={openIndex === 1}
-        handleClose={() => setOpenIndex(null)}
-        title="Mausoleum"
-      >
+      <CustomModal open={openIndex === 1} handleClose={() => setOpenIndex(null)} title="Mausoleum">
         <SectionTwo />
       </CustomModal>
-      <CustomModal
-        open={openIndex === 2}
-        handleClose={() => setOpenIndex(null)}
-        title="Mausoleum"
-      >
+      <CustomModal open={openIndex === 2} handleClose={() => setOpenIndex(null)} title="Mausoleum">
         <SectionThree />
       </CustomModal>
     </Box>

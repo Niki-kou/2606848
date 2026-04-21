@@ -8,12 +8,12 @@ function OpenModalView({ title, excerpt, image, onOpen }) {
       sx={{
         height: "100%",
         borderRadius: 1,
-        bgcolor: "rgba(255, 255, 255, 0.88)",
+        bgcolor: "#cccdcc",
         boxShadow: "0 10px 24px rgba(39, 44, 42, 0.1)",
         transition: "transform 0.24s ease-in-out",
         '&:hover': {
           transform: 'scale(1.02)'
-        }
+        },
       }}
     >
       <CardActionArea onClick={onOpen} sx={{ height: "100%", alignItems: "stretch" }}>
