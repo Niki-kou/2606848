@@ -1,10 +1,15 @@
 import { Box, Link, Stack, Typography } from "@mui/material";
-import { FaBookOpen } from "react-icons/fa6";
 
 function ReferenceItem({ searchText, description, href, linkText }) {
   return (
     <Box component="li">
-      <Typography component="span" sx={{ fontStyle: "italic" }}>
+      <Typography
+        component="span"
+        sx={{
+          fontStyle: "italic",
+          fontSize: { xs: "0.6rem", sm: "0.8rem" },
+        }}
+      >
         {searchText}&nbsp;
       </Typography>
       {description}&nbsp;
@@ -26,46 +31,29 @@ export default function Footer() {
     <Box
       component="footer"
       sx={{
-        mt: "auto",
-        pt: 3,
-        p: 2,
+        mx: { xs: -2, md: -5 },
+        mb: { xs: -3, md: -5 },
+        mt: 2,
+        px: { xs: 2, md: 5 },
+        py: 3,
         bgcolor: "#cccdcc",
-        boxShadow: "0 10px 24px rgba(39, 44, 42, 0.1)",
         color: "#3d4641",
-        borderRadius: 1,
       }}
     >
       <Stack spacing={1.5}>
         <Box>
-          <div style={{ display: "flex", alignItems: "center", gap: 14, justifyContent: "center" }}>
-            <div
-              style={{
-                backgroundColor: "#191A19",
-                paddingLeft: 8,
-                paddingRight: 8,
-                paddingTop: 6,
-                paddingBottom: 6,
-                borderRadius: 100,
-              }}
-            >
-              <FaBookOpen size={20} color="#cccdcc" style={{ transform: "translateY(1px)" }} />
-            </div>
-            <Typography
-              variant="h4"
-              sx={{
-                fontSize: { xs: "2.0rem", sm: "2.5rem" },
-                fontFamily: "Almendra SC",
-                lineHeight: 1,
-                color: "#2b312d",
-                textTransform: "uppercase",
-                textAlign: "center",
-              }}
-            >
-              Bibliography
-            </Typography>
-          </div>
-          <Typography sx={{ mt: 0.5, color: "#4b5563", textAlign: "center" }}>
-            This is a super cool bibliography section / footer
+          <Typography
+            variant="h4"
+            sx={{
+              fontSize: { xs: "2.0rem", sm: "2.5rem" },
+              fontFamily: "Almendra SC",
+              lineHeight: 1,
+              color: "#2b312d",
+              textTransform: "uppercase",
+              textAlign: "center",
+            }}
+          >
+            Bibliography
           </Typography>
         </Box>
 
@@ -73,27 +61,110 @@ export default function Footer() {
           component="ol"
           sx={{
             m: 0,
-            pl: 0,
+            pl: "1rem",
             pb: 2,
             width: "fit-content",
             mx: "auto",
             textAlign: "left",
             listStylePosition: "inside",
             alignSelf: "center",
+            fontSize: { xs: "0.6rem", sm: "0.8rem" },
           }}
         >
           <ReferenceItem
-            searchText="Google search."
-            description="blah blah blah"
-            href="https://website.com"
-            linkText="website.com"
+            searchText="Mee, C."
+            description="(2011) Greek Archaeology A Thematic Approach, Oxford – Chap. 9"
           />
 
           <ReferenceItem
-            searchText="Google search."
-            description="more and more blah blah blah"
-            href="https://otherwebsite.com"
-            linkText="otherwebsite.com"
+            searchText="Mee, C."
+            description="(2011) Greek Archaeology A Thematic Approach, Oxford – Chap. 9"
+          />
+
+          <ReferenceItem
+            searchText="Mee, C."
+            description="(2011) Greek Archaeology A Thematic Approach, Oxford – Chap. 9"
+          />
+
+          <ReferenceItem
+            searchText="Mee, C."
+            description="(2011) Greek Archaeology A Thematic Approach, Oxford – Chap. 9"
+          />
+
+          <ReferenceItem
+            searchText="Mee, C."
+            description="(2011) Greek Archaeology A Thematic Approach, Oxford – Chap. 9"
+          />
+
+          <ReferenceItem
+            searchText="Mee, C."
+            description="(2011) Greek Archaeology A Thematic Approach, Oxford – Chap. 9"
+          />
+
+          <ReferenceItem
+            searchText="Mee, C."
+            description="(2011) Greek Archaeology A Thematic Approach, Oxford – Chap. 9"
+          />
+
+          <ReferenceItem
+            searchText="Katherine Harrell"
+            description="“The Fallen and Their Swords: A New Explanation for the Rise of the Shaft Graves.” American Journal of Archaeology, vol. 118, no. 1, 2014, pp. 3–17. JSTOR."
+            href="https://doi.org/10.3764/aja.118.1.0003"
+            linkText="https://doi.org/10.3764/aja.118.1.0003"
+          />
+
+          <ReferenceItem
+            searchText="Mee, C."
+            description="(2011) Greek Archaeology: A Thematic Approach, Oxford – Chap. 9"
+          />
+
+          <ReferenceItem
+            searchText="Mee, C."
+            description="(2011) Greek Archaeology: A Thematic Approach, Oxford – Chap. 9"
+          />
+
+          <ReferenceItem
+            searchText="Mee, C."
+            description="(2011) Greek Archaeology: A Thematic Approach, Oxford – Chap. 9"
+          />
+
+          <ReferenceItem
+            searchText="Mee, C."
+            description="(2011) Greek Archaeology: A Thematic Approach, Oxford – Chap. 9"
+          />
+
+          <ReferenceItem
+            searchText="Mee, C."
+            description="(2011) Greek Archaeology: A Thematic Approach, Oxford – Chap. 9"
+          />
+
+          <ReferenceItem
+            searchText="Burton, D."
+            description="(2003) ‘Public Memorials, Private Virtues: Women on Classical Athenian Grave Monuments’, Mortality 8.1, pp. 20–35"
+          />
+
+          <ReferenceItem
+            searchText="Burton, D."
+            description="(2003) ‘Public Memorials, Private Virtues: Women on Classical Athenian Grave Monuments’, Mortality 8.1, pp. 20–35"
+          />
+
+          <ReferenceItem
+            searchText="Dimakis, Nikolas"
+            description="“Ancient Greek Deathscapes.” Journal of Eastern Mediterranean Archaeology & Heritage Studies, vol. 3, no. 1, 2015, pp. 27–41. JSTOR"
+            href="https://doi.org/10.5325/jeasmedarcherstu.3.1.0027"
+            linkText="https://doi.org/10.5325/jeasmedarcherstu.3.1.0027"
+          />
+
+          <ReferenceItem
+            searchText="Burton, D." 
+            description="(2003) ‘Public Memorials, Private Virtues: Women on Classical Athenian Grave Monuments’, Mortality 8.1, pp. 20–35"
+          />
+
+          <ReferenceItem
+            searchText="Dimakis, Nikolas"
+            description="“Ancient Greek Deathscapes.” Journal of Eastern Mediterranean Archaeology & Heritage Studies, vol. 3, no. 1, 2015, pp. 27–41. JSTOR"
+            href="https://doi.org/10.5325/jeasmedarcherstu.3.1.0027"
+            linkText="https://doi.org/10.5325/jeasmedarcherstu.3.1.0027"
           />
         </Box>
       </Stack>
